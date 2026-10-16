@@ -7,13 +7,12 @@ def garden_operations(operation_number: int) -> None:
     elif operation_number == 2:
         open("/non/existent/file")
     elif operation_number == 3:
-        # Deliberate TypeError: the test below catches this invalid operation.
-        _ = "plants: " + 3  # type: ignore[operator]
+        _ = "plants: " + 3
 
 
 def test_error_types() -> None:
     print("=== Garden Error Types Demo ===")
-    for operation in range(5):
+    for operation in (0, 1, 2, 3, 4):
         print(f"Testing operation {operation}...")
         try:
             garden_operations(operation)
