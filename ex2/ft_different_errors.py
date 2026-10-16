@@ -7,6 +7,7 @@ def garden_operations(operation_number: int) -> None:
     elif operation_number == 2:
         open("/non/existent/file")
     elif operation_number == 3:
+        # Deliberate TypeError: the test below catches this invalid operation.
         _ = "plants: " + 3  # type: ignore[operator]
 
 
@@ -22,7 +23,7 @@ def test_error_types() -> None:
             print(f"Caught ZeroDivisionError: {error}")
         except FileNotFoundError as error:
             print(f"Caught FileNotFoundError: {error}")
-        except (TypeError, AttributeError) as error:
+        except TypeError as error:
             print(f"Caught TypeError: {error}")
         else:
             print("Operation completed successfully")
